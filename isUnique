@@ -1,0 +1,30 @@
+// "static void main" must be defined in a public class.
+import java.util.*;
+public class Main {
+    public boolean isUnique(String str){
+        if(str.length()==0){
+            return true;
+        }
+      Map<Character, Integer> hm = new HashMap<>();
+        for(int i=0; i<str.length(); i++){
+            hm.put(str.charAt(i),hm.getOrDefault(str.charAt(i),0)+1);
+        }
+        
+        for(int val:hm.values()){
+            if(val>1){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        Main obj = new Main();
+        System.out.println(obj.isUnique("aba"));
+        System.out.println(obj.isUnique("a"));
+        System.out.println(obj.isUnique("abbbbbbb"));
+        System.out.println(obj.isUnique(""));
+        System.out.println(obj.isUnique(".ab77"));
+         System.out.println(obj.isUnique("..."));
+        
+    }
+}

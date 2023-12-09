@@ -1,0 +1,40 @@
+import java.util.*;
+public class Main {
+    
+    public boolean isPalindrome(String a){
+        
+        if(a.length()==0 || a == " "){
+            return false;
+        }
+        int oddCount = 0;
+        Map<Character, Integer> hashMap = new HashMap<>();
+        
+        for(int i=0; i<a.length(); i++){
+            hashMap.put(a.charAt(i),hashMap.getOrDefault(a.charAt(i),0)+1);
+        
+        }
+        
+         for (Integer value : hashMap.values()) {
+            if(value % 2 !=0){
+                oddCount++;
+            }
+        }
+        if(oddCount >1){
+            return false;
+        }
+        return true;
+        
+    }
+       
+    
+  
+    public static void main(String[] args) {
+        Main obj = new Main();
+        System.out.println(obj.isPalindrome("abbba"));
+        System.out.println(obj.isPalindrome(" "));
+        System.out.println(obj.isPalindrome("aab "));
+        
+       
+        
+    }
+}

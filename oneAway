@@ -1,0 +1,65 @@
+import java.util.*;
+public class Main {
+    
+    public boolean oneAway(String a, String b){
+        
+        int l1 = a.length();
+        int l2 = b.length();
+        
+        if(a==b){
+            return true;
+        }
+        if(l1-l2>1 || l2-l1>1){
+            return false;
+        }
+        int i=0, j=0;
+        int count =0;
+        
+        while(i<l1 && j< l2){
+           if(a.charAt(i)!= b.charAt(j)){
+               if(count == 1){
+                   return false;
+               }
+  
+               if(l1> l2){
+                   i++;
+               }else if(l2>l1){
+                   j++;
+               }
+               else{
+                   i++;
+                   j++;
+               }
+               count++;
+           }else{
+            
+            i++;
+            j++;
+           }
+        }
+        
+        
+        if(i<l1 || j<l2){
+            count++;
+        }
+        
+        
+        
+     return count ==1;   
+        
+   
+    }
+       
+    
+  
+    public static void main(String[] args) {
+        Main obj = new Main();
+        System.out.println(obj.oneAway("pale", "pales"));
+        System.out.println(obj.oneAway("pale", "bake"));
+       System.out.println(obj.oneAway("pale", "pakessss"));
+        System.out.println(obj.oneAway("ab", "acc"));
+        
+       
+        
+    }
+}
